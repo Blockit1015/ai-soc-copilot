@@ -1,12 +1,13 @@
-from fastapi import FastAPI
+from fastapi import FastAPI  #引入 FastAPI 框架
 
 
-app = FastAPI()
+app = FastAPI()  # 创建一个 FastAPI 实例（这是整个应用的入口）
 
 
-@app.get("/health")
+@app.get("/health")    #这是一个装饰器，定义路由：当有人访问 /health 时，执行下面的函数
+
 def health() -> dict[str, str]:
-    return {
+    return {                             #返回固定的 JSON 数据——契约
         "status": "ok",
         "service": "ai-soc-copilot",
         "version": "0.1.0",
