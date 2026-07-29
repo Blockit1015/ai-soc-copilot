@@ -1,4 +1,4 @@
-fastapi
-httpx
-pytest
-uvicorn
+fastapi==0.140.13
+httpx2==2.9.1
+pytest==9.1.1
+uvicorn==0.52.0
