@@ -12,3 +12,8 @@ X-Correlation-ID: corr-d02-001
   "asset_id": "asset-fixture-001",
   "raw_ref": "fixture://alerts/alert-fixture-001"
 }
+
+#测试包裹：
+#运行前先启动应用fastapi:  uvicorn app.main:app --reload，会看到服务启动在 http://127.0.0.0:8000
+#点击项目窗口顶部的 [Send Request] 
+#退出应用fastapi： Ctrl+C

@@ -1,8 +1,17 @@
 from datetime import datetime
 from enum import Enum
-
 from pydantic import BaseModel, Field, StrictStr, validator
 
+#这里定义了一个告警的标准格式，叫 StandardAlert。它有几个字段：
+# alert_id: 告警的唯一ID
+# source: 告警的来源
+# occurred_at: 告警发生的时间
+# severity: 告警的严重级别LOW, MEDIUM, HIGH, CRITICAL）。
+# title: 告警的标题
+# asset_id: 告警关联的资产ID
+# raw_ref: 告警的原始参考
+
+### 当发来请求时，FastAPI会拿此文件里的标准格式规则去“核对”发来的数据，如果不符合，就会触发422错误 ###
 
 class Severity(str, Enum):
     LOW = "low"
