@@ -1,0 +1,14 @@
+POST http://127.0.0.1:8000/api/v1/investigations
+Content-Type: application/json
+Idempotency-Key: idem-alert-001
+X-Correlation-ID: corr-d02-001
+
+{
+  "alert_id": "alert-fixture-001",
+  "source": "training-siem",
+  "occurred_at": "2026-07-30T01:00:00Z",
+  "severity": "high",
+  "title": "Repeated failed sign-in in training tenant",
+  "asset_id": "asset-fixture-001",
+  "raw_ref": "fixture://alerts/alert-fixture-001"
+}
