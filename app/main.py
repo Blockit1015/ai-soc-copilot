@@ -4,10 +4,12 @@ from fastapi import FastAPI            #引入 FastAPI 框架
 from app.api.investigations import router as investigations_router  #负责接收告警、生成 ID
 # 把D03的“案件查询接口”（investigation_context_router）拿过来挂到总控制台上
 from app.api.investigation_context import router as investigation_context_router #负责根据ID查库、返回Case/Evidence绑定信息
+from app.api.agent_runs import router as agent_runs_router #把D04的Agent运行接口（agent_runs_router）拿过来挂到总控制台上，负责接收运行请求、调用AgentRuntime、返回运行结果与轨迹
 
 app = FastAPI()  # 创建一个 FastAPI 实例（这是整个应用的入口）
 app.include_router(investigations_router) #把D02的“接收告警的接口”（路由）挂到这个引擎上，这样访问此接口时，引擎就知道去哪里找代码了
 app.include_router(investigation_context_router)
+app.include_router(agent_runs_router)
 
 
 @app.get("/health")    #这是一个装饰器，定义路由：当有人访问 /health 时，执行下面的函数
